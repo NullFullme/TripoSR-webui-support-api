@@ -1,5 +1,20 @@
-# TripoSR-webui
-A TripoSR implementation for WebUI
+# 🚀 TripoSR-webui-support-api Announcement 🚀
+
+TripoSR-webui-support-api is a fork of the original project **Z-L-D/TripoSR-webui**. 🌟 We have taken the foundation of the original project and are actively working on further development. This plugin is distributed under the **Apache 2.0 License**. 📜
+
+## 🤖 Compatibility 🤖
+
+This version is compatible with the latest versions of the following software:
+
+- **A1111**: [Commit 🔀 `adadb4e`](https://github.com/AUTOMATIC1111/stable-diffusion-webui/tree/adadb4e3c7382bf3e4f7519126cd6c70f4f8557b)
+- **lllyasviel**: [Commit 🔀 `f11456e`](https://github.com/lllyasviel/stable-diffusion-webui-forge/tree/f11456e2d38d6b7f8432cd6952fb2f10fc2081b3)
+
+## 🛠️ API Support Under Development 🛠️
+
+We are currently in the process of developing API support. Stay tuned for updates! 🔜
+
+---
+*Please note that this is a translation and the original meaning might be slightly altered to fit the emoji context.*
 
 ![](teaser800.gif)
 
@@ -11,7 +26,7 @@ This implmentation of the TripoSR model is an extension for [Stable Diffusion we
 ## Installation
 Clone this repository into your /extensions folder for web UI. 
 ```
-git clone https://github.com/Z-L-D/TripoSR-webui
+git clone https://github.com/NullFullme/TripoSR-webui-support-api
 ```
 
 
@@ -49,22 +64,3 @@ In addition to the TripoSR rendering pipeline, there is also a provided feature 
     * right mouse button: pan control
 4. Select your output image size. This image will be height bound to the visible canvas on your screen. This means if it currently wider than it is tall, selecting a portrait resolution of 768x1024, will maintain the current appearance of the object between the upper and lower portions of the canvas, cropping the left and right portions of the present view. Selecting 2048x1024, will continue to maintain the current appearance of the object between the upper and lower portions of the canvas and will instead have very wide margins on either side of the object.
 5. Press the 'Save Current View to PNG' button. This will trigger an automatic download, either prompting you to select a location to save the file or more likely automatically downloading it to your selected downloads folder. You will need to navigate to this location to feed it into img2img.
-
-## Troubleshooting
-> AttributeError: module 'torchmcubes_module' has no attribute 'mcubes_cuda'
-
-or
-
-> torchmcubes was not compiled with CUDA support, use CPU version instead.
-
-This is because `torchmcubes` is compiled without CUDA support. Please make sure that 
-
-- The locally-installed CUDA major version matches the PyTorch-shipped CUDA major version. For example if you have CUDA 11.x installed, make sure to install PyTorch compiled with CUDA 11.x.
-- `setuptools>=49.6.0`. If not, upgrade by `pip install --upgrade setuptools`.
-
-Then re-install `torchmcubes` by:
-
-```sh
-pip uninstall torchmcubes
-pip install git+https://github.com/tatsy/torchmcubes.git
-```
