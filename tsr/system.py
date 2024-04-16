@@ -70,6 +70,17 @@ class TSR(BaseModule):
         model.load_state_dict(ckpt)
         return model
 
+    @classmethod
+    def from_pretrained_custom(
+            cls, weight_path: str, config_path: str
+    ):
+        cfg = OmegaConf.load(config_path)
+        OmegaConf.resolve(cfg)
+        model = cls(cfg)
+        ckpt = torch.load(weight_path, map_location="cpu")
+        model.load_state_dict(ckpt)
+        return model
+
     def configure(self):
         self.image_tokenizer = find_class(self.cfg.image_tokenizer_cls)(
             self.cfg.image_tokenizer
